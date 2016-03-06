@@ -1,0 +1,37 @@
+<%- partial('_partial/header') %>
+
+
+<div class="index-content">
+    <div class="post-line"></div>
+    <div class="item-dialog">
+        <span class="top-angle"></span>
+        <div class="section">
+            <div class="indexs">
+                <% if(page.categories.length > 0) { %>
+                    <div class="icon category">
+                        <% page.categories.forEach(function(cat) { %>
+                            <span><%=cat.name%></span>
+                        <% }); %>
+                    </div>
+                <% } %>
+
+                <% if(page.tags.length > 0) { %>
+                    <div class="icon tags">
+                        <% page.tags.forEach(function(tag){ %>
+                            <span><%=tag.name%></span>
+                        <% }); %>
+                    </div>
+                <%}%>
+            </div>
+            <h2 class="index-title">
+                <%=page.title%>
+            </h2>
+            <div class="article-markdown">
+                <%-page.content%>
+            </div>
+            <div class="bottom">
+                <span class="icon calendar"><%=page.date.format('YYYY/MM/DD')%></span>
+            </div>
+        </div>
+    </div>
+</div>

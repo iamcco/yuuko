@@ -1,5 +1,8 @@
 @import "nib"
 @import "_varibles"
+@import "markdown"
+@import "highlight"
+@import "animation"
 
 @font-face
   font-family:'FontAwesome'
@@ -37,21 +40,35 @@ body
 .index-header
     margin:     60px auto 0 auto
     width:      1000px
-    height:     114px
+    height:     144px
     /*border: 1px solid yellow*/
+
+    a
+        text-decoration: none
+        color: $color-lblue
 
     .avatar
         float:      left
         padding:    7px
         box-sizing: border-box
         width:      114px
-        height:     114px
+        height:     144px
         background: $color-white
+
+        &:hover
+            .author
+                animation: showName 1s forwards
 
         img
             width: 100px
             height: 100px
             background: #ffffff
+
+        .author
+            margin-top: 8px
+            font-size: $font-big
+            line-height: font-big
+            color: transparent
 
     .desc
         padding-left: 30px
@@ -136,7 +153,7 @@ body
                 position: relative
                 height: 100px
 
-                span
+                .panel
                     display: inline-block
                     position: relative
                     box-sizing: border-box
@@ -151,130 +168,158 @@ body
                     color: $color-bg
                     background: $color-white
 
-            .dialog
+.post-line
+    margin-left: 110px
+    height: 100px
+    border-left: 4px solid $color-lgray
+
+.item-dialog
+    position: relative
+    padding-bottom: 40px
+
+    .left-angle
+        position: absolute
+
+        &:before
+            display: inline-block
+            position: absolute
+            left: -37px
+            top: 18px
+            width: 0
+            height: 0
+            border: 5px solid $color-white
+            border-radius: 6px
+            content: ""
+        &:after
+            display: inline-block
+            position: absolute
+            left: -24px
+            top: 11px
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 12px
+            border-left-color: transparent
+            border-top-color: transparent
+            border-bottom-color: transparent
+            border-right-color: $color-lblue
+            content: ""
+
+    .top-angle
+        position: absolute
+
+        &:after
+            display: inline-block
+            position: absolute
+            left: 100px
+            top: -24px
+            width: 0
+            height: 0
+            border-style: solid
+            border-width: 12px
+            border-left-color: transparent
+            border-top-color: transparent
+            border-bottom-color: $color-lblue
+            border-right-color: transparent
+            content: ""
+
+    .section
+        border-radius: 4px 6px 0 0
+        background: $color-white
+
+    .index-title
+        position: relative
+        padding-left: 20px
+        width: 380px
+        height: 46px
+        line-height: 46px
+        background: $color-lblue
+        border-radius: 4px 0 0 0
+        font-size: $font-lger
+        color: $color-white
+
+        &:before
+            position: absolute
+            left: 400px
+            display: inline-block
+            width: 0
+            height: 0
+            border-width: 12px 4px
+            border-style: solid
+            border-left-color: $color-lblue
+            border-top-color: $color-lblue
+            border-right-color: transparent
+            border-bottom-color: transparent
+            content: ""
+
+        &:after
+            position: absolute
+            left: 400px
+            top: 22px
+            display: inline-block
+            width: 0
+            height: 0
+            border-width: 12px 4px
+            border-style: solid
+            border-left-color: $color-lblue
+            border-top-color: transparent
+            border-right-color: transparent
+            border-bottom-color: $color-lblue
+            content: ""
+
+    .indexs
+        float: right
+
+        .category
+            margin: 10px 10px 0 0
+
+            &:before
                 position: relative
-                padding-bottom: 40px
+                top: 3px
+                margin-right: 10px
+                content: $icon-category
+                font-size: $font-lg
 
-                .angle
-                    position: absolute
+        .tags
+            margin: 10px 10px 0 0
 
-                    &:before
-                        display: inline-block
-                        position: absolute
-                        left: -37px
-                        top: 18px
-                        width: 0
-                        height: 0
-                        border: 5px solid $color-white
-                        border-radius: 6px
-                        content: ""
-                    &:after
-                        display: inline-block
-                        position: absolute
-                        left: -24px
-                        top: 11px
-                        width: 0
-                        height: 0
-                        border-style: solid
-                        border-width: 12px
-                        border-left-color: transparent
-                        border-top-color: transparent
-                        border-bottom-color: transparent
-                        border-right-color: $color-lblue
-                        content: ""
+            &:before
+                position: relative
+                top: 3px
+                margin-right: 10px
+                content: $icon-tag
+                font-size: $font-lg
 
-                .section
-                    border-radius: 4px 6px 0 0
-                    background: $color-white
-                h2
-                    position: relative
-                    padding-left: 20px
-                    width: 380px
-                    height: 46px
-                    line-height: 46px
-                    background: $color-lblue
-                    border-radius: 4px 0 0 0
-                    font-size: $font-lger
-                    color: $color-white
+        span
+            border-radius: 4px
+            padding: 1px 8px
+            background: $color-tag
 
-                    &:before
-                        position: absolute
-                        left: 400px
-                        display: inline-block
-                        width: 0
-                        height: 0
-                        border-width: 12px 4px
-                        border-style: solid
-                        border-left-color: $color-lblue
-                        border-top-color: $color-lblue
-                        border-right-color: transparent
-                        border-bottom-color: transparent
-                        content: ""
+    .article
+        padding: 10px
 
-                    &:after
-                        position: absolute
-                        left: 400px
-                        top: 22px
-                        display: inline-block
-                        width: 0
-                        height: 0
-                        border-width: 12px 4px
-                        border-style: solid
-                        border-left-color: $color-lblue
-                        border-top-color: transparent
-                        border-right-color: transparent
-                        border-bottom-color: $color-lblue
-                        content: ""
+    .bottom
+        height: 30px
+        line-height: 30px
 
-                .indexs
-                    float: right
+        a
+            margin-right: 10px
+            float: right
+            text-decoration: none
+            font-size: $font-lg
+            color: $color-bg
 
-                    .category
-                        margin: 10px 10px 0 0
+            &:after
+                font-size: $font-lg
+                margin-left: 8px
+                content: "\f101"
 
-                        &:before
-                            position: relative
-                            top: 3px
-                            margin-right: 10px
-                            content: $icon-category
-                            font-size: $font-lg
+        .calendar:before
+            margin: 0 10px
+            content: $icon-calendar
+            color: $color-bg
 
-                    .tags
-                        margin: 10px 10px 0 0
-
-                        &:before
-                            position: relative
-                            top: 3px
-                            margin-right: 10px
-                            content: $icon-tag
-                            font-size: $font-lg
-
-                    span
-                        border-radius: 4px
-                        padding: 1px 8px
-                        background: $color-tag
-
-                .article
-                    padding: 10px
-
-                .bottom
-                    height: 30px
-                    line-height: 30px
-
-                    a
-                        margin-right: 10px
-                        float: right
-                        border-radius: 4px
-                        text-decoration: none
-                        font-size: $font-lg
-                        color: $color-bg
-
-                        &:after
-                            vertical-align: middle
-                            margin-left: 8px
-                            content: "\f101"
-
-                    .calendar:before
-                        margin: 0 10px
-                        content: $icon-calendar
-                        color: $color-bg
+.comment
+    margin: 0 auto
+    width: 1000px
+    background: $color-white
