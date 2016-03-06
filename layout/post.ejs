@@ -24,7 +24,9 @@
                 <%}%>
             </div>
             <h2 class="index-title">
-                <%=page.title%>
+                <a href="<%=url_for(item.value.path)%>">
+                    <%=page.title%>
+                </a>
             </h2>
             <div class="article-markdown">
                 <%-page.content%>

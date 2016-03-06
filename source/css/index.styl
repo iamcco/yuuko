@@ -149,6 +149,10 @@ body
             padding-left: 30px
             border-left: 4px solid $color-lgray
 
+            &:hover
+                .left-angle:before
+                    animation: getBlue 1s forwards
+
             .year
                 position: relative
                 height: 100px
@@ -266,6 +270,10 @@ body
             border-right-color: transparent
             border-bottom-color: $color-lblue
             content: ""
+
+        a
+            text-decoration: none
+            color: $color-white
 
     .indexs
         float: right
