@@ -1,6 +1,7 @@
 <%- partial('_partial/header') %>
 
 <%
+    // cover the posts to array
     function getAllPosts(posts) {
         var result = [];
         posts.each(function(post) {
@@ -9,6 +10,7 @@
         return result;
     }
 
+    // get all year of the page
     function getAllUnitYears(posts) {
         var years = [];
         posts.forEach(function(item, idx){
@@ -19,78 +21,43 @@
         return years;
     }
 
-    function getIndexs(years, posts) {
-        var indexs = [];
+    // get indexes for the page
+    function getindexes(years, posts) {
+        var indexes = [];
         years.forEach(function(year) {
-            indexs.push({type: 'year', value: year});
+            indexes.push({type: 'year', value: year});
             posts.forEach(function(post) {
                 if(post.date.year() == year) {
-                    indexs.push({type: 'post', value: post});
+                    indexes.push({type: 'post', value: post});
                 }
             });
         });
-        return indexs;
+        return indexes;
     }
+
     var posts = getAllPosts(page.posts);
     var years = getAllUnitYears(page.posts);
-    var indexs = getIndexs(years, posts);
+    var indexes = getindexes(years, posts);
 %>
 
-<div class="index-content">
-    <ul class="articles">
-        <% indexs.forEach(function(item) { if(item.type == 'year') { %>
+<div class="main-container margin-at">
+    <ul class="indexes-line">
+        <% indexes.forEach(function(item) { if(item.type == 'year') { %>
             <li class="item">
-                <div class="year">
+                <div class="index-year">
                     <span class="panel"><%=item.value%></span>
                 </div>
             </li>
         <% } else if(item.type == 'post') { %>
             <li class="item">
-                <div class="item-dialog">
-                    <span class="left-angle"></span>
-                    <div class="section">
-                        <div class="indexs">
-                            <% if(item.value.categories.length > 0) { %>
-                                <div class="icon category">
-                                    <% item.value.categories.forEach(function(cat) { %>
-                                        <span><%=cat.name%></span>
-                                    <% }); %>
-                                </div>
-                            <% } %>
-
-                            <% if(item.value.tags.length > 0) { %>
-                                <div class="icon tags">
-                                    <% item.value.tags.forEach(function(tag){ %>
-                                        <span><%=tag.name%></span>
-                                    <% }); %>
-                                </div>
-                            <%}%>
-                        </div>
-                        <h2 class="index-title">
-                            <a href="<%=url_for(item.value.path)%>">
-                                <%=item.value.title%>
-                            </a>
-                        </h2>
-                        <div class="article-markdown">
-                            <%if(item.value.description) {%>
-                                <%-item.value.more%>
-                            <%} else if(item.value.excerpt) {%>
-                                <%-item.value.excerpt%>
-                            <%} else if(item.value.content) {%>
-                                <%var br = item.value.content.indexOf('</p>'); if(br<0) {%>
-                                    <%-item.value.content%>
-                                <%} else {%>
-                                    <%-item.value.content.substring(0, br+4)%>
-                                <%}%>
-                            <%}%>
-                        </div>
-                        <div class="bottom">
-                            <a class="icon" href="<%=url_for(item.value.path)%>">more</a>
-                            <span class="icon calendar"><%=item.value.date.format('YYYY/MM/DD')%></span>
-                        </div>
-                    </div>
-                </div>
+                <%- partial('_partial/post', {post: item.value}) %>
             </li>
         <% } }); %>
+        <li class="item">
+            <div class="pages">
+                <div class="page">1</div>
+                <div class="page">2</div>
+            </div>
+        </li>
     </ul>
 </div>

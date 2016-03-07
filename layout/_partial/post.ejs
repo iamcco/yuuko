@@ -1,0 +1,67 @@
+<div class="post">
+    <%if (is_home()) {%>
+        <span class="left-angle"></span>
+    <%}%>
+    <div class="section">
+
+        <!--m:categories-tags-->
+        <div class="categories-tags">
+            <!--m:categories-->
+            <% if(post.categories.length > 0) { %>
+                <div class="icon category">
+                    <% post.categories.forEach(function(cat) { %>
+                        <span><%=cat.name%></span>
+                    <% }); %>
+                </div>
+            <% } %>
+            <!--/m:categories-->
+
+            <!--m:tags-->
+            <% if(post.tags.length > 0) { %>
+                <div class="icon tags">
+                    <% post.tags.forEach(function(tag){ %>
+                        <span><%=tag.name%></span>
+                    <% }); %>
+                </div>
+            <%}%>
+            <!--/m:tags-->
+        </div>
+        <!--m:categories-tags-->
+
+        <!--m:title-->
+        <h2 class="post-title">
+            <a href="<%=url_for(post.path)%>">
+                <%=post.title%>
+            </a>
+        </h2>
+        <!--/m:title-->
+
+        <!--m:post content-->
+        <div class="article-markdown">
+            <%if(is_home()) {%>
+                <%if(post.description) {%>
+                    <%-post.more%>
+                <%} else if(post.excerpt) {%>
+                    <%-post.excerpt%>
+                <%} else if(post.content) {%>
+                    <%var br = post.content.indexOf('</p>');%>
+                    <% if(br<0) {%>
+                        <%-post.content%>
+                    <%} else {%>
+                        <%-post.content.substring(0, br+4)%>
+                    <%}%>
+                <%}%>
+            <%} else if(is_post()) {%>
+                <%-post.content%>
+            <%}%>
+        </div>
+        <!--m:post content-->
+
+        <div class="post-bottom">
+            <%if(is_home()){%>
+                <a class="icon" href="<%=url_for(post.path)%>">more</a>
+            <%}%>
+            <span class="icon calendar"><%=post.date.format('YYYY/MM/DD')%></span>
+        </div>
+    </div>
+</div>

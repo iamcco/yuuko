@@ -1,34 +1,35 @@
 <div class="bg"></div>
-<header class="index-header">
-    <div class="avatar">
-        <a href="<%=config.root%>">
-            <img src="<%=theme.avatar%>" alt="<%=config.author%>">
-            <div class="author"><%=config.author%></div>
-        </a>
-    </div>
-    <nav class="nav">
-        <ul>
-            <li>
-                <i class="icon photo" title="photo">20</i>
-            </li>
-            <li>
-                <i class="icon article" title="article">20</i>
-            </li>
-        </ul>
-    </nav>
-    <div class="desc">
-        <h1><a href="<%=config.root%>"><%=config.title%></a></h1>
-        <p><%=config.subtitle%></p>
-        <div class="details">
-            <ul>
-                <% theme.social.forEach(function(item, idx){ %>
-                <li>
-                    <a href="<%=item.url%>" target="<%=item.target_blank ? '_blank' : '_self'%>">
-                        <i class="icon <%=item.type%>"><%=item.name%></i>
-                    </a>
-                </li>
-                <% }); %>
-            </ul>
+<div class="main-container margin-at margin-t60">
+    <header class="index-header">
+        <div class="avatar">
+            <a href="<%=config.root%>">
+                <img src="<%=theme.avatar%>" alt="<%=config.author%>">
+            </a>
         </div>
-    </div>
-</header>
+        <nav class="nav">
+            <ul>
+                <li>
+                    <i class="icon photo" title="photo">20</i>
+                </li>
+                <li>
+                    <i class="icon article" title="article">20</i>
+                </li>
+            </ul>
+        </nav>
+        <div class="desc">
+            <h1><a href="<%=config.root%>"><%=config.title%></a></h1>
+            <p><%=config.subtitle%></p>
+            <div class="details">
+                <ul>
+                    <% theme.social.forEach(function(item, idx){ %>
+                        <li>
+                            <a href="<%=item.url%>" target="<%=item.target_blank ? '_blank' : '_self'%>">
+                                <i class="icon <%=item.type%>"><%=item.name%></i>
+                            </a>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+    </header>
+</div>

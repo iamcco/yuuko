@@ -1,5 +1,6 @@
 @import "nib"
 @import "_varibles"
+@import "util"
 @import "markdown"
 @import "highlight"
 @import "animation"
@@ -38,10 +39,7 @@ body
     -moz-osx-font-smoothing: grayscale
 
 .index-header
-    margin:     60px auto 0 auto
-    width:      1000px
-    height:     144px
-    /*border: 1px solid yellow*/
+    height:     114px
 
     a
         text-decoration: none
@@ -52,29 +50,18 @@ body
         padding:    7px
         box-sizing: border-box
         width:      114px
-        height:     144px
+        height:     114px
         background: $color-white
-
-        &:hover
-            .author
-                animation: showName 1s forwards
 
         img
             width: 100px
             height: 100px
             background: #ffffff
 
-        .author
-            margin-top: 8px
-            font-size: $font-big
-            line-height: font-big
-            color: transparent
-
     .desc
         padding-left: 30px
         overflow:     hidden
         background:   transparent
-        /*border: 1px solid blue*/
 
         h1
             margin:    7px 0 20px 0
@@ -138,46 +125,58 @@ body
             font-size: $font-lg
             color: $color-white
 
-.index-content
-    width: 1000px
-    margin: 0 auto
-
-    .articles
-        padding-left: 110px
-
-        .item
-            padding-left: 30px
-            border-left: 4px solid $color-lgray
-
-            &:hover
-                .left-angle:before
-                    animation: getBlue 1s forwards
-
-            .year
-                position: relative
-                height: 100px
-
-                .panel
-                    display: inline-block
-                    position: relative
-                    box-sizing: border-box
-                    width: 100px
-                    height: 26px
-                    line-height: 26px
-                    left: -130px
-                    top: 34px
-                    padding: 0 10px
-                    border-radius: 10px 2px 2px 10px
-                    font-size: $font-lg
-                    color: $color-bg
-                    background: $color-white
-
-.post-line
-    margin-left: 110px
-    height: 100px
+.indexes-line
+    margin: 0 0 60px 110px
     border-left: 4px solid $color-lgray
+    border-bottom: 4px solid $color-lgray
+    border-radius: 0 0 0 4px
 
-.item-dialog
+    .item
+        position: relative
+        padding-left: 30px
+
+        &:hover
+            .left-angle:before
+                animation: getBlue .5s forwards
+
+        .index-year
+            position: relative
+            height: 100px
+
+            .panel
+                display: inline-block
+                position: relative
+                box-sizing: border-box
+                width: 100px
+                height: 26px
+                line-height: 26px
+                left: -130px
+                top: 34px
+                padding: 0 10px
+                border-radius: 10px 2px 2px 10px
+                font-size: $font-lg
+                color: $color-bg
+                background: $color-white
+
+        .pages
+            position: absolute
+
+            .page
+                position: relative
+                top: -11px
+                display: inline-block
+                box-sizing: border-box
+                width: 26px
+                height: 26px
+                margin-right: 10px
+                line-height: 26px
+                border-radius: 13px
+                text-align: center
+                font-size: $font-lg
+                color: $color-bg
+                background: $color-white
+
+.post
     position: relative
     padding-bottom: 40px
 
@@ -209,29 +208,11 @@ body
             border-right-color: $color-lblue
             content: ""
 
-    .top-angle
-        position: absolute
-
-        &:after
-            display: inline-block
-            position: absolute
-            left: 100px
-            top: -24px
-            width: 0
-            height: 0
-            border-style: solid
-            border-width: 12px
-            border-left-color: transparent
-            border-top-color: transparent
-            border-bottom-color: $color-lblue
-            border-right-color: transparent
-            content: ""
-
     .section
-        border-radius: 4px 6px 0 0
+        border-radius: 4px 4px 0 0
         background: $color-white
 
-    .index-title
+    .post-title
         position: relative
         padding-left: 20px
         width: 380px
@@ -275,7 +256,7 @@ body
             text-decoration: none
             color: $color-white
 
-    .indexs
+    .categories-tags
         float: right
 
         .category
@@ -306,7 +287,7 @@ body
     .article
         padding: 10px
 
-    .bottom
+    .post-bottom
         height: 30px
         line-height: 30px
 
