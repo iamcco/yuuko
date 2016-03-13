@@ -3,5 +3,13 @@
     <%- partial('_partial/comment') %>
 <%}%>
 
+<%if(is_home()) {%>
+    <script>
+        var head = document.querySelector('head');
+        var script = document.createElement('script');
+        script.src = '/scripts/index.js'
+        head && head.appendChild(script);
+    </script>
+<%}%>
 </body>
 </html>
