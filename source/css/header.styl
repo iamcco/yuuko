@@ -1,0 +1,88 @@
+.header
+    height:     114px
+
+    a
+        text-decoration: none
+        color: $color-lblue
+
+    .avatar
+        float:      left
+        padding:    7px
+        box-sizing: border-box
+        width:      114px
+        height:     114px
+        background: $color-preview-bg
+
+        img
+            width: 100px
+            height: 100px
+            background: #ffffff
+
+    .desc
+        padding-left: 30px
+        overflow:     hidden
+        background:   transparent
+
+        h1
+            margin:    7px 0 16px 0
+            padding:   0
+            font-size: $font-2x
+            color: $color-lblue
+        p
+            font-size: $font-h4
+            color: $color-header-detail
+
+        .details
+            margin-top: 10px
+            font-size: $font-s
+
+            li
+                margin-right: 10px
+                display: inline-block
+
+                a
+                    color: $color-header-detail
+
+            .email:before
+                margin-right: 7px
+                font-size: $font-s
+                content: $icon-email
+                color: $color-header-detail
+
+            .github:before
+                margin-right: 7px
+                font-size: $font-s
+                content: $icon-github
+                color: $color-header-detail
+
+            .weibo:before
+                margin-right: 7px
+                font-size: $font-s
+                content: $icon-weibo
+                color: $color-header-detail
+
+
+    .nav
+        margin: 10px 0 0 0
+        color: $color-lblue
+        float: right
+
+        li
+            margin: 0 10px;
+            color: $color-lblue
+            font-weight: blod
+            font-size: $font-h5
+            display: inline-block
+
+        .photo-count:before
+            content: $icon-photo
+            margin-right: 10px
+            font-size: $font-h5
+            color: $color-lblue
+
+        .article-count:before
+            content: $icon-article
+            margin-right: 10px
+            font-size: $font-h5
+            color: $color-lblue
+

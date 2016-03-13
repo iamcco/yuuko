@@ -1,137 +1,204 @@
-@charset "utf-8"
+@import "nib"
 
-.article-markdown
-    font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif
-    font-size: 18px
-    padding: 2%
-    line-height: 150%
-    color: #555
+$markdown-color-bg          = #FFFFFF
+$markdown-color-code-bg     = #F7F7F7
+$markdown-color-border      = #DDDDDD
+$markdown-color-border-top  = #CCCCCC
+$markdown-color-bottom-line = #EEEEEE
+$markdown-color-lgray       = #777777
+$markdown-color-dgray       = $markdown-color-border
+$markdown-color-tag-a       = #4078C0
+$markdown-color-tag-tr      = #F8F8F8
+$markdown-color-font        = #333333
+$markdown-color-img-shadow  = #555555
 
+.margin-tb-zero
+    margin-top: 0
+    margin-bottom: 0
+
+.markdown-body
+    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+    font-size: 16px
+    color: $markdown-color-font
+    line-height: 1.6
+    word-wrap: break-word
+    padding: 45px
+    background: $markdown-color-bg
+    border: 1px solid $markdown-color-border
+    border-radius: 0 0 3px 3px
+
+    & > *:first-child
+        margin-top: 0 !important
+
+    & > *:last-child
+        margin-bottom: 0 !important
+
+    *
+        box-sizing: border-box
 
     h1,h2,h3,h4,h5,h6
-        font-family: "Palatino Linotype", "Book Antiqua", Palatino, Helvetica, STKaiti, SimSun, serif
+        margin-top: 1em
+        margin-bottom: 16px
         font-weight: bold
-        line-height: 150%
-        color: #666666
+        line-height: 1.4
+
+    p,blockquote,ul,ol,dl,table,pre
+        margin-top: 0
+        margin-bottom: 16px
 
     h1
-        font-size: 1.5em
-        margin-top: 30px
-        margin-bottom: 25px
-        border-bottom: 1px LightGrey solid
+        margin: 0.67em 0
+        padding-bottom: 0.3em
+        font-size: 2.25em
+        line-height: 1.2
+        border-bottom: 1px solid $markdown-color-bottom-line
 
     h2
-        font-size: 1.4em
-        margin-top: 25px
-        margin-bottom: 20px
-        border-bottom: 1px LightGrey solid
+        padding-bottom: 0.3em
+        font-size: 1.75em
+        line-height: 1.225
+        border-bottom: 1px solid $markdown-color-bottom-line
 
     h3
-        font-size: 1.3em
-        margin-top: 20px
-        margin-bottom: 15px
+        font-size: 1.5em
+        line-height: 1.43
 
     h4
-        font-size: 1.2em
-        margin-top: 15px
-        margin-bottom: 15px
+        font-size: 1.25em
 
     h5
-        font-size: 1.1em
-        margin-top: 10px
-        margin-bottom: 10px
+        font-size: 1em
 
     h6
-        margin-top: 5px
-        margin-bottom: 5px
+        font-size: 1em
+        color: $markdown-color-lgray
 
-    p
-        margin:1em 0
+    ol,ul
+        padding-left: 2em
 
-    blockquote
-        color: #666666
-        margin-left: 1em
-        padding-left: 1em
-        border-left: 0.4em #EEE solid
-        font-style: italic
-        line-height: 130%
+        ol
+            list-style-type: lower-roman
+            @extend .margin-tb-zero
+        ul
+            list-style-type: circle
+            @extend .margin-tb-zero
 
-    hr
-        color: LightGrey
+            ol
+                @extend .margin-tb-zero
+
+            ul
+                list-style-type: square
+                @extend .margin-tb-zero
+
+    ol
+        list-style-type: decimal
 
     ul
-        list-style: square
-        & ul
-            list-style: circle
-    ol
-        list-style: decimal
+        list-style-type: disc
 
-    ul, ol
-        padding: 0 0 0 2em
-
-    li p:last-child
-        margin:0
-
-    li
-        margin: 5px 0
-
-    dd
-        margin: 5px 0
-
-    table, th, td
-        border: 1px solid #CCCCCC
-        padding: 6px 13px
-        text-align: left
+    blockquote
+        margin-left: 0
+        margin-right: 0
+        padding: 0 15px
+        color: $markdown-color-lgray
+        border-left: 4px solid $markdown-color-dgray
 
     table
+        display: block
+        width: 100%
+        overflow: auto
+        word-break: normal
+        word-break: keep-all
         border-collapse: collapse
         border-spacing: 0
 
-    th
-        font-weight: bold
-        background-color: #fbfbfb
+        tr
+            background-color: $markdown-color-bg
+            border-top: 1px solid $markdown-color-border-top
 
-    tr:nth-child(2n)
-        background-color: #fcfcfc
+            &:nth-child(2n)
+                background-color: $markdown-color-tag-tr
 
-    td
-        vertical-align: top
+        th,td
+            padding: 6px 13px
+            border: 1px solid $markdown-color-border
 
-    img
-        box-shadow: 0 0 10px #555
-        border-radius: 6px
-        margin-left: auto
-        margin-right: auto
-        margin-top: 10px
-        margin-bottom: 10px
+    pre
+        word-wrap: normal
+        padding: 16px
+        overflow: auto
+        font-size: 85%
+        line-height: 1.45
+        background-color: $markdown-color-code-bg
+        border-radius: 3px
+
+        code
+            display: inline
+            max-width: initial
+            padding: 0
+            margin: 0
+            overflow: initial
+            font-size: 100%;
+            line-height: inherit
+            word-wrap: normal
+            white-space: pre;
+            border: 0
+            border-radius: 3px
+            background-color: transparent
+
+            &:before, &:after
+                content: normal
+
+    code
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        padding: 0
+        padding-top: 0.2em
+        padding-bottom: 0.2em
+        margin: 0
+        font-size: 85%
+        background-color: rgba(0,0,0,0.04)
+        border-radius: 3px
+
+        &:before, &:after
+            letter-spacing: -0.2em
+            content: "\00a0"
 
     a
+        color: $markdown-color-tag-a
         text-decoration: none
-        padding: 1px 4px
-        color: $color-lblue
+        background: transparent
 
-    a:hover
-        background-color: LightGrey
-        color: #06e
-        border-radius: 4px
+    img
+        max-width: 100%
+        max-height: 100%
+        border-radius: 4px;
+        box-shadow: 0 0 10px $markdown-color-img-shadow
 
-    a:visited
-        color: #0b0080
+    strong
+        font-weight: bold
 
-    a:active
-        color:#faa700
+    em
+        font-style: italic
 
-    a:focus
-        outline: thin dotted
+    del
+        text-decoration: line-through
 
-    a:hover, a:active
-        outline: 0
+.task-list-item
+    list-style-type: none
 
-    a::selection
-        background: rgba(255,255,0,0.3)
-        color: #0645ad
+    input
+        font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+        margin: 0 0.35em 0.25em -1.6em
+        vertical-align: middle
 
-    ::selection
-        background:rgba(255,255,0,0.3)
-        color:#000
+    input[disabled]
+        cursor: default
+
+    input[type="checkbox"]
+        box-sizing: border-box
+        padding: 0
+
+    input[type="radio"]
+        box-sizing: border-box
+        padding: 0
 

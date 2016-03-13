@@ -50,7 +50,7 @@
     <link rel="icon" href="<%- theme.favicon %>">
   <% } %>
 
-  <%- css('css/index') %>
+  <%- css('css/styles') %>
 
 </head>
-<body>
+<body <%=is_home() ? 'class=index-bg' : ''%>>

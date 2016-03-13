@@ -1,7 +1,5 @@
-<div class="post">
-    <%if (is_home()) {%>
-        <span class="left-angle"></span>
-    <%}%>
+<div class="preview">
+    <span class="left-angle"></span>
     <div class="section">
 
         <!--m:categories-tags-->
@@ -29,15 +27,15 @@
         <!--m:categories-tags-->
 
         <!--m:title-->
-        <h2 class="post-title">
+        <h2 class="preview-title">
             <a href="<%=url_for(post.path)%>">
                 <%=post.title%>
             </a>
         </h2>
         <!--/m:title-->
 
-        <!--m:post content-->
-        <div class="article-markdown">
+        <!--m:preview content-->
+        <div class="markdown-body">
             <%if(is_home()) {%>
                 <%if(post.description) {%>
                     <%-post.more%>
@@ -51,16 +49,12 @@
                         <%-post.content.substring(0, br+4)%>
                     <%}%>
                 <%}%>
-            <%} else if(is_post()) {%>
-                <%-post.content%>
             <%}%>
         </div>
-        <!--m:post content-->
+        <!--m:preview content-->
 
-        <div class="post-bottom">
-            <%if(is_home()){%>
-                <a class="icon" href="<%=url_for(post.path)%>">more</a>
-            <%}%>
+        <div class="preview-bottom">
+            <a class="icon" href="<%=url_for(post.path)%>">more</a>
             <span class="icon calendar"><%=post.date.format('YYYY/MM/DD')%></span>
         </div>
     </div>
