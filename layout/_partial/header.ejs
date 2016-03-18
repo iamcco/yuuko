@@ -27,6 +27,13 @@
                             </a>
                         </li>
                     <% }); %>
+                    <% theme.social.forEach(function(item, idx){ %>
+                        <li class="just-icon">
+                            <a href="<%=item.url%>" target="<%=item.target_blank ? '_blank' : '_self'%>">
+                                <i class="icon <%=item.type%>"></i>
+                            </a>
+                        </li>
+                    <% }); %>
                 </ul>
             </div>
         </div>

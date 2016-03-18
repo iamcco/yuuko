@@ -4,9 +4,16 @@
     border-bottom: 4px solid $color-preview-bg
     border-radius: 0 0 0 4px
 
+    @media only screen and (max-width: $vw-level-three)
+        margin: 0
+        border: 0
+
     .item
         position: relative
         padding-left: 30px
+
+        @media only screen and (max-width: $vw-level-three)
+            padding: 0
 
         &:hover
             .left-angle:before
@@ -15,6 +22,9 @@
         .index-year
             position: relative
             height: 100px
+
+            @media only screen and (max-width: $vw-level-three)
+                height: 0
 
             .panel
                 display: inline-block
@@ -30,6 +40,11 @@
                 font-size: $font-h3
                 color: $color-preview-content
                 background: $color-preview-bg
+
+                @media only screen and (max-width: $vw-level-three)
+                    display: none
+                    left: 0
+                    top: 0
 
         .pages
             position: absolute

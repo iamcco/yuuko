@@ -1,0 +1,125 @@
+.preview
+    position: relative
+    padding-bottom: 40px
+
+    @media only screen and (max-width: $vw-level-three)
+
+        padding: 2rem 0
+
+    @media only screen and (max-width: $vw-level-two)
+
+        padding: 1.6rem 0
+
+
+    .left-angle
+        position: absolute
+
+        @media only screen and (min-width: $vw-level-three)
+
+            &:before
+                display: inline-block
+                position: absolute
+                left: -37px
+                top: 18px
+                width: 0
+                height: 0
+                border: 5px solid $color-lblue
+                border-radius: 6px
+                content: ""
+
+            &:after
+                display: inline-block
+                position: absolute
+                left: -24px
+                top: 11px
+                width: 0
+                height: 0
+                border-style: solid
+                border-width: 12px
+                border-left-color: transparent
+                border-top-color: transparent
+                border-bottom-color: transparent
+                border-right-color: $color-lblue
+                content: ""
+
+    .section
+        border-radius: 4px 4px 0 0
+        background: $color-preview-bg
+
+    .preview-title
+        position: relative
+        padding-left: 20px
+        width: 380px
+        height: 46px
+        line-height: 46px
+        background: $color-lblue
+        border-radius: 4px 0 0 0
+        font-size: $font-h2
+        color: $color-index-font
+
+        @media only screen and (max-width: $vw-level-three)
+            border-radius: 4px 4px 0 0
+
+        @media only screen and (max-width: $vw-level-two)
+            width: auto
+
+        @media only screen and (min-width: $vw-level-two)
+            &:before
+                position: absolute
+                left: 400px
+                display: inline-block
+                width: 0
+                height: 0
+                border-width: 12px 4px
+                border-style: solid
+                border-left-color: $color-lblue
+                border-top-color: $color-lblue
+                border-right-color: transparent
+                border-bottom-color: transparent
+                content: ""
+
+            &:after
+                position: absolute
+                left: 400px
+                top: 22px
+                display: inline-block
+                width: 0
+                height: 0
+                border-width: 12px 4px
+                border-style: solid
+                border-left-color: $color-lblue
+                border-top-color: transparent
+                border-right-color: transparent
+                border-bottom-color: $color-lblue
+                content: ""
+
+        a
+            text-decoration: none
+            color: $color-index-font
+
+    .markdown-body
+        border: 0
+        background: transparent
+        color: $color-preview-content
+
+
+.preview-bottom
+    height: 30px
+    line-height: 30px
+
+    a
+        margin-right: 10px
+        float: right
+        text-decoration: none
+        font-size: $font-h3
+        color: $color-preview-content
+
+        &:after
+            font-size: $font-h3
+            margin-left: 8px
+            content: "\f101"
+
+    .calendar:before
+        margin: 0 10px
+        content: $icon-calendar
+        color: $color-preview-content
