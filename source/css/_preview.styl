@@ -1,14 +1,13 @@
 .preview
     position: relative
-    padding-bottom: 40px
 
     @media only screen and (max-width: $vw-level-three)
 
-        padding: 2rem 0
+        margin: 2rem 0
 
     @media only screen and (max-width: $vw-level-two)
 
-        padding: 1.6rem 0
+        margin: 1.6rem 0
 
 
     .left-angle
@@ -101,6 +100,28 @@
         border: 0
         background: transparent
         color: $color-preview-content
+
+        @media only screen and (max-width: $vw-level-two)
+            padding: 20px
+            font-size: 13px
+            line-height: 1.4
+
+        h1
+            border-bottom: 1px solid $color-preview-content
+        h2
+            border-bottom: 0
+
+        table
+
+            th
+                font-weight: bold
+
+        blockquote
+            font-style: italic
+
+            @media only screen and (max-width: $vw-level-two)
+
+                padding: 0 12px
 
 
 .preview-bottom

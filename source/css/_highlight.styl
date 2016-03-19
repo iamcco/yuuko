@@ -6,7 +6,9 @@ $font-mono = "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace
 $font-sans = "Helvetica Neue", Helvetica, Arial, sans-serif
 
 $font-size-code = 16px
+$font-size-code-s = 12px
 $line-height = 1.6em
+$line-height-s = 1.2em
 
 // width height
 $article-padding = 1em
@@ -34,7 +36,7 @@ $highlight-aqua         = #689d6a
 $highlight-blue         = #458588
 $highlight-purple       = #b16286
 
-.code-block {
+.code-block
     background: $highlight-background
     margin: 2ex 0
     padding: 1rem 1em
@@ -44,12 +46,18 @@ $highlight-purple       = #b16286
     color: $highlight-foreground
     font-size: $font-size-code
     line-height: $line-height
-}
 
-.line-numbers {
+    @media only screen and (max-width: $vw-level-two)
+        font-size: $font-size-code-s
+        padding: .5rem .5em
+        line-height: $line-height-s
+
+.line-numbers
     color: #666
     font-size: $font-size-code
-}
+
+    @media only screen and (max-width: $vw-level-two)
+        font-size: $font-size-code-s
 
 .markdown-body {
     pre, code {
