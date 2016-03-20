@@ -61,6 +61,9 @@
             border-radius: 4px 4px 0 0
 
         @media only screen and (max-width: $vw-level-two)
+            height: 30px
+            line-height: 30px
+            font-size: $font-h6
             width: auto
 
         @media only screen and (min-width: $vw-level-two)
@@ -129,6 +132,9 @@
     height: 30px
     line-height: 30px
 
+    @media only screen and (max-width: $vw-level-two)
+        font-size: 14px
+
     a
         margin-right: 10px
         float: right
@@ -136,10 +142,17 @@
         font-size: $font-h3
         color: $color-preview-content
 
+        @media only screen and (max-width: $vw-level-two)
+            font-size: $font-h5
+
         &:after
             font-size: $font-h3
             margin-left: 8px
             content: "\f101"
+
+            @media only screen and (max-width: $vw-level-two)
+                font-size: $font-h5
+                margin-left: 6px
 
     .calendar:before
         margin: 0 10px
