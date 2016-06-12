@@ -1,7 +1,6 @@
 ### yuuko the hexo theme
 
-yuuko
-config
+[demo](http://blog.yuuko.cn)
 
 #### theme \_config.yml
 
